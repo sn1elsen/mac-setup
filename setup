@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Usage: $(basename $0) <GITHUB TOKEN>"
+  exit 1
+fi
+
+TOKEN=$1
+
+# install xcode-select (for git)
+echo "#; install Xcode Command Line Tools (for git)"
+sudo xcode-select -p &>/dev/null || xcode-select --install
+
+# clone dotfiles repo and run the bootstrap script
+source /dev/stdin <<< "$(curl -fsSL bootstrap.yadm.io)"
+yadm clone --bootstrap "https://${TOKEN}@github.com/sn1elsen/dotfiles.git"
