@@ -13,4 +13,5 @@ sudo xcode-select -p &>/dev/null || xcode-select --install
 
 # clone dotfiles repo and run the bootstrap script
 source /dev/stdin <<< "$(curl -fsSL bootstrap.yadm.io)"
-yadm clone --bootstrap "https://${TOKEN}@github.com/sn1elsen/dotfiles.git"
+#yadm clone --bootstrap "https://${TOKEN}@github.com/sn1elsen/dotfiles.git"
+yadm clone "https://${TOKEN}@github.com/sn1elsen/dotfiles.git"
